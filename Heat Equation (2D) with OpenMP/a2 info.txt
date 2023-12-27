@@ -1,0 +1,69 @@
+Sequential version Compile: g++ a2.cpp -O2 -lm -o a2
+OpenMP version Compile: g++ a2-omp.cpp -O2 -fopenmp -lm -o -a2-omp
+
+Sequential (a2.cpp) runtimes on ALMA: a) ~50 seconds, b) ~110 seconds, c) ~5 seconds
+
+a) OMP_NUM_THREADS=... srun --nodes=1 ./a2-omp --m 2688 --n 4096 --epsilon 0.01 --max-iterations 1000
+
+[a12211694@alma ~]$ OMP_NUM_THREADS=1 srun --nodes=1 ./a2-omp --m 2688 --n 4096 --epsilon 0.01 --max-iterations 1000
+Elapsed time: 51.3643 seconds, iterations: 1000
+Verification: OK
+[a12211694@alma ~]$ OMP_NUM_THREADS=2 srun --nodes=1 ./a2-omp --m 2688 --n 4096 --epsilon 0.01 --max-iterations 1000
+Elapsed time: 27.7898 seconds, iterations: 1000
+Verification: OK
+[a12211694@alma ~]$ OMP_NUM_THREADS=4 srun --nodes=1 ./a2-omp --m 2688 --n 4096 --epsilon 0.01 --max-iterations 1000
+Elapsed time: 16.7593 seconds, iterations: 1000
+Verification: OK
+[a12211694@alma ~]$ OMP_NUM_THREADS=8 srun --nodes=1 ./a2-omp --m 2688 --n 4096 --epsilon 0.01 --max-iterations 1000
+Elapsed time: 11.1447 seconds, iterations: 1000
+Verification: OK
+[a12211694@alma ~]$ OMP_NUM_THREADS=16 srun --nodes=1 ./a2-omp --m 2688 --n 4096 --epsilon 0.01 --max-iterations 1000
+Elapsed time: 10.1397 seconds, iterations: 1000
+Verification: OK
+[a12211694@alma ~]$ OMP_NUM_THREADS=32 srun --nodes=1 ./a2-omp --m 2688 --n 4096 --epsilon 0.01 --max-iterations 1000
+Elapsed time: 11.0968 seconds, iterations: 1000
+Verification: OK
+
+
+b) OMP_NUM_THREADS=... srun --nodes=1 ./a2-omp --m 2688 --n 4096 --epsilon 0.01 --max-iterations 2000
+
+[a12211694@alma ~]$ OMP_NUM_THREADS=1 srun --nodes=1 ./a2-omp --m 2688 --n 4096 --epsilon 0.01 --max-iterations 2000
+Elapsed time: 113.2494 seconds, iterations: 2000
+Verification: OK
+[a12211694@alma ~]$ OMP_NUM_THREADS=2 srun --nodes=1 ./a2-omp --m 2688 --n 4096 --epsilon 0.01 --max-iterations 2000
+Elapsed time: 59.4955 seconds, iterations: 2000
+Verification: OK
+[a12211694@alma ~]$ OMP_NUM_THREADS=4 srun --nodes=1 ./a2-omp --m 2688 --n 4096 --epsilon 0.01 --max-iterations 2000
+Elapsed time: 39.0447 seconds, iterations: 2000
+Verification: OK
+[a12211694@alma ~]$ OMP_NUM_THREADS=8 srun --nodes=1 ./a2-omp --m 2688 --n 4096 --epsilon 0.01 --max-iterations 2000
+Elapsed time: 24.8848 seconds, iterations: 2000
+Verification: OK
+[a12211694@alma ~]$ OMP_NUM_THREADS=16 srun --nodes=1 ./a2-omp --m 2688 --n 4096 --epsilon 0.01 --max-iterations 2000
+Elapsed time: 20.9031 seconds, iterations: 2000
+Verification: OK
+[a12211694@alma ~]$ OMP_NUM_THREADS=32 srun --nodes=1 ./a2-omp --m 2688 --n 4096 --epsilon 0.01 --max-iterations 2000
+Elapsed time: 22.9653 seconds, iterations: 2000
+Verification: OK
+
+c) OMP_NUM_THREADS=... srun --nodes=1 ./a2-omp --m 1152 --n 1152 --epsilon 0.01 --max-iterations 1000
+
+[a12211694@alma ~]$ OMP_NUM_THREADS=1 srun --nodes=1 ./a2-omp --m 1152 --n 1152 --epsilon 0.01 --max-iterations 1000
+Elapsed time: 4.8810 seconds, iterations: 963
+Verification: OK
+[a12211694@alma ~]$ OMP_NUM_THREADS=2 srun --nodes=1 ./a2-omp --m 1152 --n 1152 --epsilon 0.01 --max-iterations 1000
+Elapsed time: 2.5622 seconds, iterations: 963
+Verification: OK
+[a12211694@alma ~]$ OMP_NUM_THREADS=4 srun --nodes=1 ./a2-omp --m 1152 --n 1152 --epsilon 0.01 --max-iterations 1000
+Elapsed time: 1.4177 seconds, iterations: 963
+Verification: OK
+[a12211694@alma ~]$ OMP_NUM_THREADS=8 srun --nodes=1 ./a2-omp --m 1152 --n 1152 --epsilon 0.01 --max-iterations 1000
+Elapsed time: 0.8108 seconds, iterations: 963
+Verification: OK
+[a12211694@alma ~]$ OMP_NUM_THREADS=16 srun --nodes=1 ./a2-omp --m 1152 --n 1152 --epsilon 0.01 --max-iterations 1000
+Elapsed time: 0.6008 seconds, iterations: 963
+Verification: OK
+[a12211694@alma ~]$ OMP_NUM_THREADS=32 srun --nodes=1 ./a2-omp --m 1152 --n 1152 --epsilon 0.01 --max-iterations 1000
+Elapsed time: 0.5436 seconds, iterations: 963
+Verification: OK
+
